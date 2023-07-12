@@ -1,0 +1,306 @@
+@keyframes Grad {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-size: 150% 150%;
+  background-image: linear-gradient(100deg, #5532ff, #0cc8ff, #9afad0);
+  animation: Grad 25s ease infinite;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#nav {
+  position: relative;
+  display: inline-block;
+  margin-left: 15%;
+  font-family: "Open Sans";
+}
+
+.navbar {
+  padding: 0;
+  margin: 0;
+}
+.navbar li {
+  position: relative;
+  font-size: 18px;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  padding: 30px 50px;
+}
+.navbar li:hover {
+  color: rgba(255, 255, 255, 0.6666666667);
+  cursor: default;
+}
+#nav.open[data-hover="0"] .navbar li:nth-child(1) {
+  color: rgba(255, 255, 255, 0.6666666667);
+}
+#nav.open[data-hover="0"] .navbar li:nth-child(1):after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 10px);
+  border: 10px solid transparent;
+  border-bottom-color: white;
+}
+#nav.open[data-hover="1"] .navbar li:nth-child(2) {
+  color: rgba(255, 255, 255, 0.6666666667);
+}
+#nav.open[data-hover="1"] .navbar li:nth-child(2):after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 10px);
+  border: 10px solid transparent;
+  border-bottom-color: white;
+}
+#nav.open[data-hover="2"] .navbar li:nth-child(3) {
+  color: rgba(255, 255, 255, 0.6666666667);
+}
+#nav.open[data-hover="2"] .navbar li:nth-child(3):after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 10px);
+  border: 10px solid transparent;
+  border-bottom-color: white;
+}
+#nav.open[data-hover="3"] .navbar li:nth-child(4) {
+  color: rgba(255, 255, 255, 0.6666666667);
+}
+#nav.open[data-hover="3"] .navbar li:nth-child(4):after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 10px);
+  border: 10px solid transparent;
+  border-bottom-color: white;
+}
+#nav.open[data-hover="4"] .navbar li:nth-child(5) {
+  color: rgba(255, 255, 255, 0.6666666667);
+}
+#nav.open[data-hover="4"] .navbar li:nth-child(5):after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 10px);
+  border: 10px solid transparent;
+  border-bottom-color: white;
+}
+
+.navbox {
+  position: absolute;
+  top: 70px;
+  white-space: nowrap;
+  background: white;
+  border-radius: 6px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.4s, left 0s, visibility 0s linear 0.4s;
+  transform: rotateX(-25deg);
+  transform-origin: -100% 0;
+  will-change: left, transform, visibility, opacity, height;
+}
+.navbox .dropdown-container {
+  overflow: hidden;
+}
+.navbox ul {
+  opacity: 0;
+  overflow: hidden;
+  display: inline-block;
+  width: 0;
+  list-style: none;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top: 4px;
+}
+#nav.open .navbox ul {
+  transition: all 0.4s;
+}
+#nav[data-hover="0"] .navbox ul:nth-child(1) {
+  opacity: 1;
+  height: auto;
+  width: auto;
+}
+#nav[data-hover="1"] .navbox ul:nth-child(2) {
+  opacity: 1;
+  height: auto;
+  width: auto;
+}
+#nav[data-hover="2"] .navbox ul:nth-child(3) {
+  opacity: 1;
+  height: auto;
+  width: auto;
+}
+#nav[data-hover="3"] .navbox ul:nth-child(4) {
+  opacity: 1;
+  height: auto;
+  width: auto;
+}
+#nav[data-hover="4"] .navbox ul:nth-child(5) {
+  opacity: 1;
+  height: auto;
+  width: auto;
+}
+.navbox li {
+  color: #6772e5;
+  text-align: left;
+  font-weight: bold;
+  padding: 20px 40px;
+  width: calc(100% - 80px);
+}
+.navbox li:last-child {
+  border-radius: 0 0 6px 6px;
+}
+.navbox li:hover {
+  color: #32325d;
+  cursor: pointer;
+}
+.navbox li.dark {
+  background: #f3f3ff;
+}
+#nav.open .navbox {
+  opacity: 1;
+  visibility: visible;
+  transform: rotateX(0);
+  transition: all 0.4s, visibility 0s;
+}
+#nav[data-hover="0"] .navbox {
+  left: 0px;
+}
+#nav[data-hover="1"] .navbox {
+  left: 150px;
+}
+#nav[data-hover="2"] .navbox {
+  left: 300px;
+}
+#nav[data-hover="3"] .navbox {
+  left: 450px;
+}
+#nav[data-hover="4"] .navbox {
+  left: 600px;
+}
+
+#nav2 {
+  position: relative;
+  display: inline-flex;
+  font-family: "Open Sans";
+}
+
+.navbar2 {
+  padding: 0;
+  margin: 0;
+}
+.navbar2 li {
+  position: relative;
+  font-size: 18px;
+}
+.navbar2 li:hover {
+  cursor: default;
+}
+#nav2.open[data-hover="0"] .navbar2 li:nth-child(1) {
+  color: rgba(161, 26, 26, 0.667);
+}
+#nav2.open[data-hover="1"] .navbar2 li:nth-child(2) {
+  color: rgba(161, 26, 26, 0.667);
+}
+#nav2.open[data-hover="2"] .navbar2 li:nth-child(3) {
+  color: rgba(161, 26, 26, 0.667);
+}
+#nav2.open[data-hover="3"] .navbar2 li:nth-child(4) {
+  color: rgba(161, 26, 26, 0.667);
+}
+#nav2.open[data-hover="4"] .navbar2 li:nth-child(5) {
+  color: rgba(161, 26, 26, 0.667);
+}
+
+.navbox2 {
+  white-space: nowrap;
+  background: white;
+  border-radius: 6px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.4s, left 0s, visibility 0s linear 0.4s;
+  transform: rotateX(-25deg);
+  transform-origin: -100% 0;
+  will-change: left, transform, visibility, opacity, height;
+}
+.navbox2 .dropdown-container {
+  overflow: hidden;
+}
+.navbox2 ul {
+  opacity: 0;
+  overflow: hidden;
+  width: 0;
+  list-style: none;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  top: 4px;
+}
+#nav2.open .navbox2 ul {
+  transition: all 0.4s;
+}
+#nav2[data-hover="0"] .navbox2 ul:nth-child(1) {
+  opacity: 1;
+  height: auto;
+  width: auto;
+}
+#nav2[data-hover="1"] .navbox2 ul:nth-child(2) {
+  opacity: 1;
+  height: auto;
+  width: auto;
+}
+#nav2[data-hover="2"] .navbox2 ul:nth-child(3) {
+  opacity: 1;
+  height: auto;
+  width: auto;
+}
+#nav2[data-hover="3"] .navbox2 ul:nth-child(4) {
+  opacity: 1;
+  height: auto;
+  width: auto;
+}
+#nav2[data-hover="4"] .navbox2 ul:nth-child(5) {
+  opacity: 1;
+  height: auto;
+  width: auto;
+}
+.navbox2 li {
+  color: #6772e5;
+  text-align: left;
+  font-weight: bold;
+}
+.navbox2 li:last-child {
+  border-radius: 0 0 6px 6px;
+}
+.navbox2 li:hover {
+  color: #32325d;
+  cursor: pointer;
+}
+.navbox2 li.dark {
+  background: #f3f3ff;
+}
+#nav2.open .navbox2 {
+  opacity: 1;
+  visibility: visible;
+  transform: rotateX(0);
+  transition: all 0.4s, visibility 0s;
+}
+
+/*# sourceMappingURL=style.css.map */
