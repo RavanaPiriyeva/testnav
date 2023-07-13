@@ -27,7 +27,9 @@ body {
 * {
     box-sizing: border-box;
 }
-
+.dropdown-container {
+    overflow: hidden;
+}
 #nav {
     position: relative;
     display: inline-block;
@@ -87,9 +89,6 @@ body {
 .navbox {
     position: absolute;
     top: 70px;
-    //   max-width: 800px;
-    //   min-width: 200px;
-    //width: a;
     white-space: nowrap;
     background: white;
     border-radius: 6px;
@@ -98,31 +97,20 @@ body {
     transition: all $ani-length, left 0s, visibility 0s linear $ani-length;
     transform: rotateX(-25deg);
     transform-origin: -100% 0;
-    will-change: left, transform, visibility, opacity, height;
-
-    //   @for $i from 0 to $menu-item-count {
-    //     #nav[data-hover="#{$i}"] & {
-    //       width: #{$i * -200px};
-
-    //       &:nth-child(#{$i + 1}) {
-    //         opacity: 1;
-    //         height: auto;
-    //       }
-    //     }
-    //   }
-    // &:after {
-    //     content: "";
-    //     position: absolute;
-    //     top: -20px;
-    //     left: calc(50% - 10px);
-    //     border: 10px solid transparent;
-    //     border-bottom-color: white;
-    // }
-    .dropdown-container {
-        overflow: hidden;
+    padding-left: 30px;
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0;
+        height: 100%;
+        width: 30px;
+        background-color: var(--after-background-color, red);
+        border-radius: 6px 0 0 6px;
+        transition: all 0.5s;
     }
 
-    ul {
+    ul.main {
         opacity: 0;
         overflow: hidden;
         display: inline-block;
@@ -134,7 +122,7 @@ body {
         position: relative;
         top: 4px;
         // background-color: white;
-      
+
         #nav.open & {
             transition: all $ani-length;
             //   width: 100%;
@@ -142,8 +130,6 @@ body {
 
         @for $i from 0 to $menu-item-count {
             #nav[data-hover="#{$i}"] & {
-//left:0;
-
                 &:nth-child(#{$i + 1}) {
                     opacity: 1;
                     height: auto;
@@ -166,16 +152,11 @@ body {
         color: $c-font;
         text-align: left;
         font-weight: bold;
-        padding: 20px 40px;
-        width: calc(100% - 80px);
+        padding: 15px 25px;
+        margin: 0;
 
         &:last-child {
             border-radius: 0 0 6px 6px;
-        }
-
-        &:hover {
-            color: $c-font-dark;
-            cursor: pointer;
         }
 
         &.dark {
@@ -193,179 +174,41 @@ body {
     @for $i from 0 to $menu-item-count {
         #nav[data-hover="#{$i}"] & {
             left: #{(150px * $i)};
-            //    left:0;
         }
     }
 }
 #nav2 {
-    position: relative;
     display: inline-flex;
     font-family: "Open Sans";
-}
-
-.navbar2 {
     padding: 0;
-    margin: 0;
-
     li {
-        position: relative;
-        font-size: 18px;
-       // color: white;
-      //  display: inline-block;
-     //   width:200px ;
-       // text-align: center;
-       // padding: 30px 50px;
-       // transition: all 0.3s;
-
-        &:hover {
-           // color: #fffa;
-            cursor: default;
-            // &::after{
-            //     border-bottom-color: white;
-
-            // }
-        }
-
-        // &:after {
-        //     content: "";
-        //     position: absolute;
-        //     bottom: 10px;
-        //     left: calc(50% - 10px);
-        //     border: 10px solid transparent;
-        //   //  transition: all 0.5s;
-
-        // //    border-bottom-color: white;
-        // }
-        @for $i from 0 to $menu-item-count {
-          #nav2.open[data-hover="#{$i}"] &:nth-child(#{$i + 1}) {
-            color: rgba(161, 26, 26, 0.667);
-            // &:after {
-            //     content: "";
-            //     position: absolute;
-            //     //bottom: 10px;
-            //     //left: calc(50% - 10px);
-            //     right: 0;
-            //     border: 10px solid transparent;
-            //   border-left-color: rgb(216, 20, 20);
-            // }
-          }
-        }
-    }
-}
-
-.navbox2 {
-  //  position: absolute;
-   // top: 70px;
-    //   max-width: 800px;
-    //   min-width: 200px;
-    //width: a;
-    //left: 200px;
-    white-space: nowrap;
-     background: white;
-    border-radius: 6px;
-    visibility: hidden;
-    opacity: 0;
-    transition: all $ani-length, left 0s, visibility 0s linear $ani-length;
-    transform: rotateX(-25deg);
-    transform-origin: -100% 0;
-    will-change: left, transform, visibility, opacity, height;
-
-    //   @for $i from 0 to $menu-item-count {
-    //     #nav[data-hover="#{$i}"] & {
-    //       width: #{$i * -200px};
-
-    //       &:nth-child(#{$i + 1}) {
-    //         opacity: 1;
-    //         height: auto;
-    //       }
-    //     }
-    //   }
-    // &:after {
-    //     content: "";
-    //     position: absolute;
-    //     top: -20px;
-    //     left: calc(50% - 10px);
-    //     border: 10px solid transparent;
-    //     border-bottom-color: white;
-    // }
-    .dropdown-container {
-       overflow: hidden;
-    }
-
-    ul {
-        opacity: 0;
-        overflow: hidden;
-        //display: inline-block;
-        width: 0;
         list-style: none;
-        height: 0;
-        padding: 0;
         margin: 0;
-       // position: relative;
-        top: 4px;
-       // background-color: white;
-
-        #nav2.open & {
-            transition: all $ani-length;
-            //   width: 100%;
-        }
-
-        @for $i from 0 to $menu-item-count {
-            #nav2[data-hover="#{$i}"] & {
-              // left: #{$i * -100px};
-
-                &:nth-child(#{$i + 1}) {
-                    opacity: 1;
-                    height: auto;
-                  //  display: inline-block;
-                   width: auto;
-                }
-                // &:nth-child(#{$i + 1})::after {
-                //     content: "";
-                //     position: absolute;
-                //     top: -20px;
-                //     left: calc(50% - 10px);
-                //     border: 10px solid transparent;
-                //     border-bottom-color: white;
-                // }
-            }
-        }
-
     }
-
-    li {
-        color: $c-font;
-        text-align: left;
-        font-weight: bold;
-        // padding: 20px 40px;
-        // width: calc(100% - 80px);
-
-        &:last-child {
-            border-radius: 0 0 6px 6px;
-        }
-
-        &:hover {
-            color: $c-font-dark;
-            cursor: pointer;
-        }
-
-        &.dark {
-            background: #f3f3ff;
+    .navbar2 {
+        padding: 10px;
+        position: relative;
+        &::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 50px;
+            top: var(--after-top, 10px);
+            background-color: rgba(64, 224, 208, 0.445);
+            clip-path: polygon(90% 31%, 100% 52%, 90% 71%, 90% 100%, 0 100%, 0 0, 90% 0);
+            z-index: -1;
+            transition: all 0.2s;
         }
     }
-
-    #nav2.open & {
-        opacity: 1;
-        visibility: visible;
-        transform: rotateX(0);
-        transition: all $ani-length, visibility 0s;
+    .navbox2 {
+        width: 100%;
+        transform: translateY(0px);
+        transition: all linear 0.3s;
+        ul {
+            margin: 0;
+            padding: 0;
+            opacity: 0;
+            transition: all linear 0.2s;
+        }
     }
-
-    //   @for $i from 0 to $menu-item-count {
-    //     #nav2[data-hover="#{$i}"] & {
-    //      left: #{(150px * $i)  };
-    //   //    left:0;
-
-    //     }
-    //   }
 }
